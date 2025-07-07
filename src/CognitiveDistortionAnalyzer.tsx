@@ -9,9 +9,9 @@ import { ModelSelector } from './components/ModelSelector';
 
 export const CognitiveDistortionAnalyzer = () => {
   const [inputText, setInputText] = useState('');
-  const { analyzeTextDebounced, distortions, isProcessing } = useDistortionAnalyzer();
+  const { engine, isLoading, error, loadProgress, initializeEngine } = useWebLLM();
+  const { analyzeTextDebounced, distortions, isProcessing } = useDistortionAnalyzer(engine);
   const { tooltip, handleMouseEnter, handleMouseLeave } = useTooltip();
-  const { isLoading, isReady, error, loadProgress, initializeEngine } = useWebLLM();
 
   const handleTextChange = (text: string) => {
     setInputText(text);
