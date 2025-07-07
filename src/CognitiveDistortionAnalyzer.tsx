@@ -1,13 +1,17 @@
 import { useState } from 'react';
 import { useDistortionAnalyzer } from './hooks/useDistortionAnalyzer';
 import { useTooltip } from './hooks/useTooltip';
+import { useWebLLM } from './contexts/WebLLMContext';
 import { EditableTextArea } from './components/EditableTextArea';
 import { Tooltip } from './components/Tooltip';
+import { WebLLMLoader } from './components/WebLLMLoader';
+import { ModelSelector } from './components/ModelSelector';
 
 export const CognitiveDistortionAnalyzer = () => {
   const [inputText, setInputText] = useState('');
   const { analyzeTextDebounced, distortions, isProcessing } = useDistortionAnalyzer();
   const { tooltip, handleMouseEnter, handleMouseLeave } = useTooltip();
+  const { isLoading, isReady, error, loadProgress, initializeEngine } = useWebLLM();
 
   const handleTextChange = (text: string) => {
     setInputText(text);
@@ -16,6 +20,15 @@ export const CognitiveDistortionAnalyzer = () => {
 
   return (
     <div className="relative">
+      <ModelSelector />
+      
+      <WebLLMLoader
+        isLoading={isLoading}
+        loadProgress={loadProgress}
+        error={error}
+        onLoadClick={initializeEngine}
+      />
+      
       <EditableTextArea
         inputText={inputText}
         distortions={distortions}

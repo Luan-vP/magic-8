@@ -1,9 +1,10 @@
 import './App.css'
 import { CognitiveDistortionAnalyzer } from './CognitiveDistortionAnalyzer.tsx'
+import { WebLLMProvider } from './contexts/WebLLMContext.tsx'
 
 function App() {
   return (
-    <>
+    <WebLLMProvider>
       <div className="App">
         <header className="App-header">
           <h1>Cognitive Distortion Analyzer</h1>
@@ -36,13 +37,14 @@ function App() {
                 </div>
               </div>
             </div>
+            
+            <CognitiveDistortionAnalyzer />
           </div>
-          <CognitiveDistortionAnalyzer />
         </main>
         <footer>
         </footer>
       </div>
-    </>
+    </WebLLMProvider>
   )
 }
 

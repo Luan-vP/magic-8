@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
 import { distortionPatterns } from '../utils/distortionPatterns';
+import { APP_CONFIG } from '../config/appConfig';
 import type { DistortionResult, DistortionPattern } from '../types/distortion';
 
 export const useDistortionAnalyzer = () => {
@@ -130,7 +131,7 @@ export const useDistortionAnalyzer = () => {
   }, []);
 
   // Debounced version - waits for pause in input before analyzing
-  const analyzeTextDebounced = useCallback((text: string, delay = 500) => {
+  const analyzeTextDebounced = useCallback((text: string, delay = APP_CONFIG.analysis.debounceDelay) => {
     // Clear any pending analysis timeout
     if (processingTimeoutRef.current) {
       clearTimeout(processingTimeoutRef.current);
