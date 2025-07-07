@@ -1,4 +1,5 @@
 import { CreateMLCEngine, MLCEngine } from "@mlc-ai/web-llm";
+import { APP_CONFIG } from "../config/appConfig";
 
 // WebLLM Engine singleton
 class WebLLMService {
@@ -18,7 +19,7 @@ class WebLLMService {
 
   // Initialize the engine with progress tracking
   async initialize(
-    selectedModel = "Llama-3.1-8B-Instruct-q4f32_1-MLC",
+    selectedModel = "Llama-3.2-3B-Instruct-q4f16_1-MLC",
     onProgress?: (progress: any) => void
   ): Promise<MLCEngine> {
     // Return existing engine if already initialized
@@ -57,7 +58,8 @@ class WebLLMService {
     };
 
     return await CreateMLCEngine(
-      selectedModel,
+    //   selectedModel,  // TODO: fix this eventually
+      APP_CONFIG.webLLM.defaultModel,
       { initProgressCallback }
     );
   }

@@ -35,6 +35,7 @@ export const WebLLMProvider: React.FC<WebLLMProviderProps> = ({
   const [currentModel, setCurrentModel] = useState<string>(defaultModel);
 
   const initializeEngine = async (modelName = currentModel) => {
+    console.log('Initializing WebLLM with model:', modelName);
     if (webLLMService.isReady() || webLLMService.isLoading()) {
       return;
     }

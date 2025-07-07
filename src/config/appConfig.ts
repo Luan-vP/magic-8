@@ -2,12 +2,9 @@
 export const APP_CONFIG = {
   // WebLLM Configuration
   webLLM: {
-    defaultModel: "Llama-3.1-8B-Instruct-q4f32_1-MLC",
+    defaultModel: "Llama-3.2-3B-Instruct-q4f16_1-MLC",
     availableModels: [
-      "Llama-3.1-8B-Instruct-q4f32_1-MLC",
       "Llama-3.2-3B-Instruct-q4f16_1-MLC",
-      "Phi-3.5-mini-instruct-q4f16_1-MLC",
-      "Qwen2.5-7B-Instruct-q4f16_1-MLC"
     ],
     autoLoad: false, // Whether to load model on app start
   },
