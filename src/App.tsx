@@ -12,9 +12,6 @@ function App() {
         <main>
           <div className="max-w-4xl mx-auto p-6 bg-white">
             <div className="mb-8">
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">
-                Cognitive Distortion Analyzer
-              </h1>
               <p className="text-gray-600">
                 Type your thoughts below. Cognitive distortions will be highlighted with different colors. 
                 Hover over them to see clarifying questions.
@@ -37,7 +34,6 @@ function App() {
                 </div>
               </div>
             </div>
-            
             <CognitiveDistortionAnalyzer />
           </div>
         </main>

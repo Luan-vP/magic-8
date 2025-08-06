@@ -1,4 +1,5 @@
 import React from 'react';
+import './Tooltip.css';
 
 interface TooltipProps {
   visible: boolean;
@@ -8,19 +9,24 @@ interface TooltipProps {
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({ visible, x, y, question }) => {
-  if (!visible) return null;
+  if (!question) return null;
 
   return (
     <div
-      className="absolute z-10 bg-gray-800 text-white p-3 rounded-lg shadow-lg max-w-xs"
+      className={`tooltip-container ${visible ? 'visible' : 'hidden'}`}
       style={{
         left: x,
-        top: y,
-        transform: 'translateX(-50%)'
+        top: y - 60,
+        transform: 'translateX(-50%)',
       }}
     >
-      <div className="text-sm font-medium mb-1">Meta-Model Question:</div>
-      <div className="text-sm">{question}</div>
+      <div className="tooltip-content">
+        <div className="tooltip-header">
+          Meta-Model Question:
+        </div>
+        <div className="tooltip-text">{question}</div>
+        <div className="tooltip-arrow" />
+      </div>
     </div>
   );
 };
