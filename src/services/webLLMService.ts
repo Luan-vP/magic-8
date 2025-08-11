@@ -52,6 +52,7 @@ class WebLLMService {
     selectedModel: string,
     onProgress?: (progress: any) => void
   ): Promise<MLCEngine> {
+    console.log("Creating WebLLM engine with model:", selectedModel);
     const initProgressCallback = (initProgress: any) => {
       console.log('WebLLM Loading:', initProgress);
       onProgress?.(initProgress);

@@ -8,14 +8,12 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci --only=production
+RUN npm ci
 
 # Copy source code
 COPY . .
 
 RUN npm install -g typescript
-
-ENV NODE_ENV=production
 
 # Build the application
 RUN npm run build
