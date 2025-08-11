@@ -1,5 +1,5 @@
 # Multi-stage build for React application
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # Set working directory
 WORKDIR /app
@@ -12,6 +12,8 @@ RUN npm ci --only=production
 
 # Copy source code
 COPY . .
+
+RUN npm install -g typescript
 
 # Build the application
 RUN npm run build
