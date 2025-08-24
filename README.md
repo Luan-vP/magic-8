@@ -1,69 +1,88 @@
-# React + TypeScript + Vite
+# Magic Clarity
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Magic Clarity is both a practical tool and a research platform for exploring cognitive distortion detection using edge-deployable language models. The project aims to advance our understanding of how small, efficient language models can be optimized for specialized cognitive-behavioral therapy (CBT) tasks.
 
-Currently, two official plugins are available:
+## Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project serves two main purposes:
+1. A practical web application for real-time cognitive distortion detection
+2. A research platform for comparing and optimizing language models for CBT applications
 
-## Expanding the ESLint configuration
+### Research Focus
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The project explores several key research areas:
+- Effectiveness of small language models in cognitive distortion detection
+- Comparison between different model optimization techniques (fine-tuning, LoRA, in-context learning)
+- Development of evaluation metrics for CBT-focused language model performance
+- Edge deployment strategies for mental health applications
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Key Components
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Web Application**
+   - Real-time cognitive distortion analysis
+   - Interactive visualization of model outputs
+   - Local-first processing using WebLLM
+   - Privacy-preserving design
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. **Research Infrastructure**
+   - Jupyter notebooks for model experimentation
+   - Evaluation frameworks for model comparison
+   - Data collection and analysis tools
+   - Model optimization pipelines
+
+## Getting Started
+
+### Prerequisites
+- Node.js (version TBD)
+- Python (for research notebooks)
+- Jupyter environment
+
+### Installation
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Research Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Create Python virtual environment
+python -m venv venv
+source venv/bin/activate  # or `venv\Scripts\activate` on Windows
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install research dependencies
+pip install -r requirements.txt
+
+# Start Jupyter
+jupyter lab
 ```
+
+## Project Structure
+
+```
+magic-clarity/
+├── src/                # Web application source
+├── research/           # Research notebooks and tools
+├── models/            # Model training and evaluation
+└── docs/             # Documentation
+```
+
+## Contributing
+
+We welcome contributions in several areas:
+- Web application development
+- Model optimization techniques
+- Evaluation metrics
+- Documentation and research findings
+
+## License
+
+[License Type TBD]
+
+## Research Publications
+
+[Future publications and citations will be listed here]
